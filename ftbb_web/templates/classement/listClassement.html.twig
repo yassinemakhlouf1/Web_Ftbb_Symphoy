@@ -1,0 +1,95 @@
+{% extends 'back/base.html.twig' %}
+{% block content %}
+   {% if classements == []   %}
+              <h4 class="sp-table-caption">    pas de classement </h4>
+            
+               {% else %}
+            <a  href="{{ path('ExportPDFClassement',{'id':classements[0].idCompetition.id }) }}">                        
+           <button id="btn_add"  class="btn btn-primary">Export PDF </button> 
+     </a>
+                                                      
+                                                                  
+            {% endif %}
+
+   
+     <div class="row">
+                            <div class="col-lg-6">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Simple table</h5>
+                                    
+                                       <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+                                                                    {# <th scope="col"> logo </th> #}
+                                                                    <th scope="col">TEAM</th> 
+                                                                    <th scope="col">PTS</th>
+                                                                    <th scope="col">Played</th>
+                                                                    <th scope="col">win</th>
+                                                                    <th scope="col">lost</th>
+                                                                    <th scope="col">Diff</th>
+
+ 
+    </tr>
+  </thead>
+  <tbody>
+        {% set i = 1 %}
+             {% for c in classements | sort((a, b) =>  b.nbrPts <=>  a.nbrPts  )  %}
+                                                              
+                                                                <tr class="lineup odd">
+                                                                    <td class="data-number" data-label="#">{{ i }}</td>
+                                                                    {% set i = i  + 1 %}
+                                                                    {# <td class="data-position" data-label="Position">
+                                                                       <img src="{{ asset('uploads/logo/'~ c.idTeam.logo)}}" width="30"  >
+                                                                 </td> #}
+                                                                    <td class="data-name" data-label="Player"><a >{{ c.idTeam.name }}</a></td>
+                                                                   
+                                                                    <td class="data-pts" data-label="PTS">{{ c.nbrPts }}</td>
+                                                                    <td class="data-reb" data-label="REB">
+                                                                     {% if c.nbrPtsP == null  %}
+                                                                    0 
+                                                                    {% else %}
+                                                                   {{ c.nbrPtsP }}
+                                                                    {% endif %}
+                                                                   
+                                                                   </td>
+                                                                    <td class="data-ast" data-label="AST">
+                                                                        {% if c.nbrPtsG == null  %}
+                                                                    0 
+                                                                    {% else %}
+                                                                    {{ c.nbrPtsG }}
+                                                                    {% endif %}
+                                                                   
+                                                                    </td>
+                                                                    <td class="data-stl" data-label="STL">                                                                               
+                                                                    {% if c.nbrPtsD == null  %}
+                                                                        0 
+                                                                        {% else %}
+                                                                    {{c.nbrPtsD}}
+                                                                        {% endif %}
+                                           
+                                                                    </td>
+                                                                    <td class="data-blk" data-label="BLK">
+                                                                       {% if c.ptsDiff == null  %}
+                                                                    0 
+                                                                    {% else %}
+                                                                  {{ c.ptsDiff }}
+                                                                    {% endif %}
+                                                                   
+                                                                  
+                                                                    </td>
+                                                                    
+                                                                </tr>
+                                                                 {% endfor %}
+ 
+
+  </tbody>
+
+
+</table>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+{% endblock %}

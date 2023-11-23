@@ -1,0 +1,24 @@
+Articles:
+get all articles at: [/articles/get/all]
+get an article at: [/articles/get/{id}]
+delete article at: [/articles/delete/{id}]
+modify article at: [/articles/modify/{id}]
+add article at: [/articles/add]
+sort by most liked at: [/articles/sort/sortliked]
+sort by most commented on at: [/articles/sort/mostcomment]
+sort by newest at: [/articles/sort/newest/{time}]
+
+Comments:
+get comments of a specefic article at: [/comments/get/{article_id}]
+add comment to an article at: [/comments/add/{article_id}/{client_id}]
+delete/ban comment at: [/comments/delete/{comment_id}]
+sort comments by most liked at: [/comments/sort/sortliked/{article_id}]
+sort comments by newest at: [/comments/sort/sortnewest/{article_id}]
+
+Likes:
+add like to a comment at: [/likes/comment/{comment_id}/{client_id}]
+add like to an article at: [/likes/article/{article_id}/{client_id}]
+check if a client liked this article at: [/likes/check/article/{article_id}/{client_id}]
+check if a client liked this comment at: [/likes/check/comment/{comment_id}/{client_id}]
+
+API v0.3

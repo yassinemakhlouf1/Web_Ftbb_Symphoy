@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../atelier4/atelier4/.idea/atelier4.iml" filepath="$PROJECT_DIR$/../atelier4/atelier4/.idea/atelier4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ftbb_web.iml" filepath="$PROJECT_DIR$/.idea/ftbb_web.iml" />
+    </modules>
+  </component>
+</project>

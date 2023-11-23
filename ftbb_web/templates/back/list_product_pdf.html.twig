@@ -1,0 +1,48 @@
+{% block body %}
+          <h1 align="center" style="color: orangered;"> Liste des produits </h1><hr style="color: #F6DDCC ;">
+                            <table align="center">
+                                <thead>
+                                <tr>
+                                    <th bgcolor="#BDC3C7">#</th>
+                                    <th bgcolor="#BDC3C7">Reference</th>
+                                    <th bgcolor="#BDC3C7">Category</th>
+                                    <th bgcolor="#BDC3C7">Stock</th>
+                                    <th bgcolor="#BDC3C7">Name</th>
+                                    <th bgcolor="#BDC3C7">Price</th>
+                                    <th bgcolor="#BDC3C7">Details</th>
+                                    <th bgcolor="#BDC3C7">Add Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set i=0 %}
+                                {% for product in data %}
+                                    {% set i=i+1 %}
+                                    <tr>
+                                        <th scope="row" bgcolor="#BDC3C7">{{ i }}</th>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.refProduct }}
+                                        </td>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.category }}
+                                        </td>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.stock }}
+                                        </td>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.name }}
+                                        </td>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.price }} DT
+                                        </td>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.details }}
+                                        </td>
+                                        <td bgcolor="#F2F3F4">
+                                            {{ product.addDate |date ('Y-m-d H:i:s') }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+{% endblock %}
+

@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% include 'alert.html.twig' %}
+{% block title %}Control panel page!{% endblock %}
+
+{% block body %}
+
+    <h2>Poll List</h2>
+
+<div id="search-4" class="widget widget_search bigslam-widget" style="width: 250px; height: 50px; float: right">
+    <form  role="search" method="get" type="submit" id="poll_index" class="search-form" >
+        <div class="input-group" >
+            <input  name="users" id="users" type="search" class="search-field" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2" style="height: 40px; border-radius: 15px;">
+            <input type="submit" class="search-submit" value="Search">
+
+            <div class="input-group-append">
+
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<table class="table">
+
+                            <thead>
+        <tr>
+            <th>Poll ID</th>
+            <th>Description</th>
+            <th>Creation date</th>
+            <th>Status</th>
+
+
+        </tr>
+                            </thead>
+        </tr>
+                            <tbody>
+        {% for p in Poll  %}
+            {% if p.status == "Active" %}
+                <tr>
+                    <td style="color: black">
+                        {{ p.pollId }}
+                    </td>
+                    <td style="color: black">
+                        {{ p.description }}
+                    </td>
+                    <td style="color: black">
+                        {{ p.creationDate |date ('Y-m-d') }}
+                    </td>
+                    <td style="color: black">
+                        {{ p.status }}
+                    </td>
+
+
+                    <td>
+                        <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="/ftbb_web/ftbb_web/public/index.php/poll/delete/{{ p.pollId }}" id="gdlr-core-button-id-27645" ><span class="gdlr-core-content">delete</span></a>
+
+                    </td>
+                    <td>
+                        <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="/ftbb_web/ftbb_web/public/index.php/poll/Endpoll/{{ p.pollId }}" id="gdlr-core-button-id-27645"><span class="gdlr-core-content">End Poll</span></a>
+                    </td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        {% for p in Poll  %}
+        {% if p.status == "Ended" %}
+            <tr>
+                <td style="color: black">
+                    {{ p.pollId }}
+                </td>
+                <td style="color: black">
+                    {{ p.description }}
+                </td>
+                <td style="color: black">
+                    {{ p.creationDate |date ('Y-m-d') }}
+                </td>
+                <td style="color: black">
+                    {{ p.status }}
+                </td>
+
+
+                <td>
+                    <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="/ftbb_web/ftbb_web/public/index.php/poll/delete/{{ p.pollId }}" id="gdlr-core-button-id-27645"><span class="gdlr-core-content">delete</span></a>
+
+                </td>
+
+
+            </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+        </table>
+
+
+
+
+    <td>
+        <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="/ftbb_web/ftbb_web/public/index.php/poll/addpoll" id="gdlr-core-button-id-27645"><span class="gdlr-core-content">Add Poll</span></a>
+    </td>
+    <td>
+        <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="/ftbb_web/ftbb_web/public/index.php/poll/deleteall" id="gdlr-core-button-id-27645"><span class="gdlr-core-content">Delete all</span></a>
+    </td>
+                        {% endblock %}

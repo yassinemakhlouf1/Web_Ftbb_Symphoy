@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello list product!{% endblock %}
+
+{% block body %}
+    <div style="margin-top: 20%;" class="gdlr-core-pbf-element">
+                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
+                            <div class="gdlr-core-text-box-item-content">
+                                <div class="sportspress sp-widget-align-none">
+                                    <div class="sp-template sp-template-event-list">
+                                        <div class="sp-table-wrapper">
+                                            <table class="sp-event-list sp-event-list-format-title sp-data-table sp-paginated-table sp-sortable-table sp-scrollable-table" data-sp-rows="10">
+                                                <thead>
+                                                <tr>
+                                                    <th class="data-venue">Photo</th>
+                                                    <th class="data-event">Category</th>
+                                                    <th class="data-time">Stock</th>
+                                                    <th class="data-league">Name</th>
+                                                    <th class="data-season">Price</th>
+                                                    <th class="data-venue">Details</th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <!-- <tr class="sp-row sp-post alternate sp-row-no-0">
+                                                     <td class="data-date">
+                                                         <a href="#">
+
+                                                         </a>
+                                                     </td>
+                                                     <td class="data-event"><a href="#"> Big Slam VS Houston </a></td>
+                                                     <td class="data-time">
+                                                         <a href="#">
+                                                             <date>&nbsp;08:53:20</date>8:53 am</a>
+                                                     </td>
+                                                     <td class="data-league">NBA</td>
+                                                     <td class="data-season">2017</td>
+                                                     <td class="data-venue">Houston House</td>
+                                                     <td class="data-article">
+                                                         <a href="#">
+                                                             <div class="dashicons dashicons-video-alt"></div>Preview</a>
+                                                     </td>-->
+                                                {% if data is not empty %}
+                                                    {% for product in data %}
+                                                        <tr class="sp-row sp-post alternate sp-row-no-0">
+                                                            <td>
+                                                                <img style="height: 100px; width: 100px" src="http://127.0.0.1/ftbb_web/ftbb_web/public/images/prod/{{ product.photo }}" >
+                                                            </td>
+                                                            <td class="data-event">
+                                                                {{ product.category }}
+                                                            </td>
+                                                            <td>
+                                                                {{ product.stock }}
+                                                            </td>
+                                                            <td class="data-event">
+                                                                {{ product.name }}
+                                                            </td>
+                                                            <td>
+                                                                {{ product.price }}
+                                                            </td>
+                                                            <td>
+                                                                {{ product.details }}
+                                                            </td>
+                                                            <td class="data-article">
+                                                                <a href="/ftbb_web/ftbb_web/public/index.php/favourite/supprimer/{{ product.refProduct}}" role="button">
+                                                                    <div class="dashicons dashicons-video-alt"></div> Supprimer
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}

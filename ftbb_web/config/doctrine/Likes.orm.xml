@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Likes" table="likes">
+    <indexes>
+      <index name="id_article" columns="id_article"/>
+      <index name="id_client" columns="id_client"/>
+      <index name="id_comment" columns="id_comment"/>
+    </indexes>
+    <id name="idLike" type="integer" column="id_like">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idArticle" type="integer" column="id_article" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idComment" type="integer" column="id_comment" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idClient" type="integer" column="id_client" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

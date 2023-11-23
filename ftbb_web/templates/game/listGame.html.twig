@@ -1,0 +1,383 @@
+{% extends 'back/base.html.twig' %}
+{% block content %}
+
+     <div class="row">
+                            <div class="col-lg-6">
+                                <div class="main-card mb-3 card">
+                                 <label for="exampleSelect" class="">Select competition</label>
+                                   <select  id="id_competition" name="id_competition"  class="form-control">
+                                                     
+                                                         {% for c in competitions %}
+                                                         
+                                                        <option value={{c.id}}>{{c.name}}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                    <label for="exampleSelect" class="">Select phase</label>
+                                   <select id="id_phase" name="id_phase"  class="form-control">
+                                                        
+                                                         {% for p in phases %}
+                                                        
+                                                        <option value={{p.id}}>{{p.name}}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                    <label for="exampleSelect" class="">Select week</label>
+                                   <select id="id_week" name="id_week"  class="form-control">
+                                                       
+
+                                                         {% for w in weeks %}
+                                                           
+                                                        <option value={{w.id}}>{{w.nameWeek }}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                    </div>
+                                              
+                                     <a id="href">
+                                     <button id="btn_add"  class="btn btn-primary">Add Game</button> </a>   
+                   
+                    
+                    
+                                    <div class="card-body"><h5 class="card-title">Game table</h5>
+                                    
+                                        <table class="mb-0 table">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th> Team Home </th>
+                                                <th> Score </th>
+                                                <th> Score </th>
+                                                <th> Team Away </th>
+                                                <th> Salle </th>
+                                              <th> Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="data">
+
+                                          {#   {% for g in game %}
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                
+                                                <td>{{g.idTeamHome.name}}</td>
+                                                <td>{{g.idTeamAway.name}}</td>
+                                                <td> #}
+{#                                                 <a href="{{path('team_delete',{'id':t.id}) }}">
+                                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                           
+                                                        <i class="pe-7s-trash"> </i>
+                                                                                    
+                        </button></a>
+                        
+                         <a href="{{path('team_edit',{'id':t.id}) }}">
+                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                              <i class="pe-7s-note2"> </i>
+                        </button></a> #}
+                                             {#    </td>
+                                            </tr>
+                                           {% endfor %} #}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script>
+$(document).ready(function () {
+var competition = document.getElementById("id_competition");
+var competition_id= competition.value;
+console.log(competition_id);
+
+var phase = document.getElementById("id_phase");
+var id_phase= phase.value;
+console.log(id_phase);
+
+var week = document.getElementById("id_week");
+var id_week= week.value;
+console.log(id_week);
+
+
+$.ajax({
+                            type: 'get',
+                            url: '{{ path('ShowgamesUp') }}',
+                            data: {'id_week': id_week,'id_phase':id_phase,'competition_id':competition_id},
+                            success: function (data) {
+                                console.log(data);
+                               var element = document.getElementById('data');
+                              if (data.length==0) {
+                                    $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                              }
+                               $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                            $.each( data, function( key, value ) {
+                             console.log( value ); 
+                             $('#data ').append('<tr>'+
+                             '<td>'+key+'</td>'+
+                             '<td>'+value.idTeamHome.name+'</td>'+
+                              '<td>'+value.scoreHome+'</td>'+
+                                '<td>'+value.scoreAway+'</td>'+
+                              '<td>'+value.idTeamAway.name+'</td>'+
+                             '<td>'+value.salle+'</td>'+
+                              
+                              '<td><a href= http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/score/edit/'+value.id+'>'+
+                         "<button type='button' class='hamburger close-sidebar-btn hamburger--elastic' data-class='closed-sidebar'>"+
+                              "<i class='pe-7s-note2'> </i>"+
+                        "</button></a></td>"+
+                             
+                             '</tr>');
+                            });
+                            }, error: function (e) {
+                                console.log("erreur " + e)
+                            }
+                        });
+    });
+    </script>
+
+ <script>
+$(document).ready(function () {
+    $('#id_competition').change(function(){
+
+var competition = document.getElementById("id_competition");
+var competition_id= competition.value;
+console.log(competition_id);
+
+var phase = document.getElementById("id_phase");
+var id_phase= phase.value;
+console.log(id_phase);
+
+var week = document.getElementById("id_week");
+var id_week= week.value;
+console.log(id_week);
+
+
+$.ajax({
+                            type: 'get',
+                            url: '{{ path('ShowgamesUp') }}',
+                            data: {'id_week': id_week,'id_phase':id_phase,'competition_id':competition_id},
+                            success: function (data) {
+                                console.log(data);
+                               var element = document.getElementById('data');
+                               if (data.length==0) {
+                                    $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                              }
+                               $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                            $.each( data, function( key, value ) {
+                             console.log( value ); 
+                             $('#data ').append('<tr>'+
+                             '<td>'+key+'</td>'+
+                             '<td>'+value.idTeamHome.name+'</td>'+
+                              '<td>'+value.scoreHome+'</td>'+
+                                '<td>'+value.scoreAway+'</td>'+
+                              '<td>'+value.idTeamAway.name+'</td>'+
+                             '<td>'+value.salle+'</td>'+
+                             '<td><a href= http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/score/edit/'+value.id+'>'+
+                         "<button type='button' class='hamburger close-sidebar-btn hamburger--elastic' data-class='closed-sidebar'>"+
+                              "<i class='pe-7s-note2'> </i>"+
+                        "</button></a></td>"+
+                             '</tr>');
+                            });
+                            }, error: function (e) {
+                                console.log("erreur " + e)
+                            }
+                        });
+    })
+
+
+
+//change phase
+   $('#id_phase').change(function(){
+
+var competition = document.getElementById("id_competition");
+var competition_id= competition.value;
+console.log(competition_id);
+
+var phase = document.getElementById("id_phase");
+var id_phase= phase.value;
+console.log(id_phase);
+
+var week = document.getElementById("id_week");
+var id_week= week.value;
+console.log(id_week);
+
+
+$.ajax({
+                            type: 'get',
+                            url: '{{ path('ShowgamesUp') }}',
+                            data: {'id_week': id_week,'id_phase':id_phase,'competition_id':competition_id},
+                            success: function (data) {
+                                console.log(data);
+                               var element = document.getElementById('data');
+                               if (data.length==0) {
+                                    $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                              }
+                               $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                            $.each( data, function( key, value ) {
+                             console.log( value ); 
+                             $('#data ').append('<tr>'+
+                             '<td>'+key+'</td>'+
+                             '<td>'+value.idTeamHome.name+'</td>'+
+                              '<td>'+value.scoreHome+'</td>'+
+                                '<td>'+value.scoreAway+'</td>'+
+                              '<td>'+value.idTeamAway.name+'</td>'+
+                             '<td>'+value.salle+'</td>'+
+                             '<td><a href= http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/score/edit/'+value.id+'>'+
+                         "<button type='button' class='hamburger close-sidebar-btn hamburger--elastic' data-class='closed-sidebar'>"+
+                              "<i class='pe-7s-note2'> </i>"+
+                        "</button></a></td>"+
+                             '</tr>');
+                            });
+                            }, error: function (e) {
+                                console.log("erreur " + e)
+                            }
+                        });
+    })
+
+
+
+//change week
+   $('#id_week').change(function(){
+
+var competition = document.getElementById("id_competition");
+var competition_id= competition.value;
+console.log(competition_id);
+
+var phase = document.getElementById("id_phase");
+var id_phase= phase.value;
+console.log(id_phase);
+
+var week = document.getElementById("id_week");
+var id_week= week.value;
+console.log(id_week);
+
+
+$.ajax({
+                            type: 'get',
+                            url: '{{ path('ShowgamesUp') }}',
+                            data: {'id_week': id_week,'id_phase':id_phase,'competition_id':competition_id},
+                            success: function (data) {
+                                console.log(data);
+                               var element = document.getElementById('data');
+                               if (data.length==0) {
+                                    $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                              }
+                                $('#data ').html('<tr>'+
+                             '<td></td>'+
+                             '<td></td>'+
+                              '<td></td>'+
+                                '<td></td>'+
+                              '<td></td>'+
+                             '<td></td>'+
+                             '</tr>');
+                            $.each( data, function( key, value ) {
+                             console.log( value ); 
+                             $('#data ').append('<tr>'+
+                             '<td>'+key+'</td>'+
+                             '<td>'+value.idTeamHome.name+'</td>'+
+                              '<td>'+value.scoreHome+'</td>'+
+                                '<td>'+value.scoreAway+'</td>'+
+                              '<td>'+value.idTeamAway.name+'</td>'+
+                             '<td>'+value.salle+'</td>'+
+                             '<td><a href= http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/score/edit/'+value.id+'>'+
+                         "<button type='button' class='hamburger close-sidebar-btn hamburger--elastic' data-class='closed-sidebar'>"+
+                              "<i class='pe-7s-note2'> </i>"+
+                        "</button></a></td>"+
+                             '</tr>');
+                            });
+                            }, error: function (e) {
+                                console.log("erreur " + e)
+                            }
+                        });
+    })
+
+
+
+    });
+    </script>
+<script>
+$( "#btn_add" ).click(function() {
+  var id_competition= $( "#id_competition" ).val();
+  var id_phase= $( "#id_phase" ).val();
+  var id_week= $( "#id_week" ).val();
+console.log(id_competition);
+  $("#href").attr("href","http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/Addgame/"+id_competition+"/"+id_phase+"/"+id_week);
+
+
+/* 
+$.ajax({
+                            type: 'get',
+                            url: '{{ path('navAddGame') }}',
+                            data: {'id_week': id_week,'id_phase':id_phase,'competition_id':id_competition},
+                            success: function (data) {
+                              
+                              var id_competition=data[0];
+                              var id_phase=data[1];
+                              var id_week=data[2];
+                              console.log(id_competition);
+                              console.log(id_phase);
+                              console.log(id_week);
+                             $("#href").attr("href", "{{path('Addgame',{'id_competition':"parseInt(id_competition)",'id_phase':"{{id_phase}}",'id_week':"{{id_week}}"}) }}");
+                            }, error: function (e) {
+                                console.log(e)
+                            }
+                        });*/
+
+
+
+});
+</script>
+
+
+
+
+
+{% endblock %}
+
+

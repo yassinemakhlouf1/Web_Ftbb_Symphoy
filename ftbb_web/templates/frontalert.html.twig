@@ -1,0 +1,21 @@
+
+
+{% block alert %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {%  for message in messages %}
+
+            <div class="gdlr-core-alert-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
+                <div class="gdlr-core-alert-box-item-inner gdlr-core-skin-e-background gdlr-core-skin-border" style="background-color: #63d386 ;border-color: #53b271 ;border-width: 3px;">
+                    <div class="gdlr-core-alert-box-remove gdlr-core-js"><i class="fa fa-remove"></i></div>
+                    <div class="gdlr-core-alert-box-item-head">
+                        <div class="gdlr-core-alert-box-item-icon"><i class="fa fa-life-buoy"></i></div>
+                        <h3 class="gdlr-core-alert-box-item-title gdlr-core-skin-title" style="color: #ffffff ;">{{ type }}</h3></div>
+                    <div class="gdlr-core-alert-box-item-content gdlr-core-skin-e-content">
+                        {{ message|raw }}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor%}
+    {% endfor%}
+{% endblock %}

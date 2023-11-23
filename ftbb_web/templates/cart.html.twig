@@ -1,0 +1,755 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your cart{% endblock %}
+
+{% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <div class="bigslam-mobile-header-wrap">
+        <div class="bigslam-mobile-header bigslam-header-background bigslam-style-slide" id="bigslam-mobile-header">
+            <div class="bigslam-mobile-header-container bigslam-container">
+                <div class="bigslam-logo  bigslam-item-pdlr">
+                    <div class="bigslam-logo-inner">
+                        <a href="index.html"><img src="upload/logo-mobile.png" alt="" width="300" height="109" title="logo-mobile"></a>
+                    </div>
+                </div>
+                <div class="bigslam-mobile-menu-right">
+                    <div class="bigslam-main-menu-search" id="bigslam-mobile-top-search"><i class="fa fa-search"></i></div>
+                    <div class="bigslam-top-search-wrap">
+                        <div class="bigslam-top-search-close"></div>
+
+                        <div class="bigslam-top-search-row">
+                            <div class="bigslam-top-search-cell">
+                                <form role="search" method="get" class="search-form" action="#">
+                                    <input type="text" class="search-field bigslam-title-font" placeholder="Search..." value="" name="s">
+                                    <div class="bigslam-top-search-submit"><i class="fa fa-search"></i></div>
+                                    <input type="submit" class="search-submit" value="Search">
+                                    <div class="bigslam-top-search-close"><i class="icon_close"></i></div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="bigslam-mobile-menu"><a class="bigslam-mm-menu-button bigslam-mobile-menu-button bigslam-mobile-button-hamburger-with-border" href="#bigslam-mobile-menu"><i class="fa fa-bars"></i></a>
+                        <div class="bigslam-mm-menu-wrap bigslam-navigation-font" id="bigslam-mobile-menu" data-slide="right">
+                            <ul id="menu-main-navigation" class="m-menu">
+                                <li class="menu-item menu-item-home current-menu-item"><a href="index.html" aria-current="page">Home</a></li>
+                                <li class="menu-item menu-item-has-children"><a href="schedule.html">Schedule</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="schedule.html">Schedule – Default Style</a></li>
+                                        <li class="menu-item"><a href="schedule-featured-style.html">Schedule – Featured Style</a></li>
+                                        <li class="menu-item"><a href="schedule-medium-style.html">Schedule – Medium Style</a></li>
+                                        <li class="menu-item"><a href="schedule-widget-style.html">Schedule – Widget Style</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="player-list-default-style.html">Players</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="player-list-default-style.html">Player List – Default Style</a></li>
+                                        <li class="menu-item"><a href="player-list-gallery.html">Player List – Gallery</a></li>
+                                        <li class="menu-item"><a href="player-list-style-1.html">Player List – Style 1</a></li>
+                                        <li class="menu-item"><a href="player-list-style-2.html">Player List – Style 2</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item "><a href="big-slam.html">Our Team</a></li>
+                                <li class="menu-item menu-item-has-children"><a href="#">SportsPress</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-has-children"><a href="#">Game</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="games-details.html">Games Details</a></li>
+                                                <li class="menu-item"><a href="game-results.html">Game Results</a></li>
+                                                <li class="menu-item"><a href="game-box-scores.html">Game Box Scores</a></li>
+                                                <li class="menu-item"><a href="game-calendar.html">Game Calendar</a></li>
+                                                <li class="menu-item"><a href="game-list.html">Game List</a></li>
+                                                <li class="menu-item"><a href="game-blocks.html">Game Blocks</a></li>
+                                                <li class="menu-item"><a href="game-countdown.html">Game Countdown</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Player</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="player-details.html">Player Details</a></li>
+                                                <li class="menu-item"><a href="player-statics.html">Player Statics</a></li>
+                                                <li class="menu-item"><a href="player-list-default-style.html">Player List</a></li>
+                                                <li class="menu-item"><a href="player-list-gallery.html">Player  Gallery</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item"><a href="league-table.html">League Table</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-has-children"><a href="#">About</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="about-us.html">About Us</a></li>
+                                                <li class="menu-item"><a href="about-us-2.html">About Us 2</a></li>
+                                                <li class="menu-item"><a href="about-us-3.html">About Us 3</a></li>
+                                                <li class="menu-item"><a href="about-our-team.html">About Our Team</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="portfolio-3-columns.html">Portfolio</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children"><a>Portfolio Grid</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="portfolio-2-columns.html">Portfolio 2 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-3-columns.html">Portfolio 3 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-4-columns.html">Portfolio 4 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-5-columns.html">Portfolio 5 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-2-columns-with-frame.html">Portfolio 2 Columns With Frame</a></li>
+                                                        <li class="menu-item"><a href="portfolio-3-columns-with-frame.html">Portfolio 3 Columns With Frame</a></li>
+                                                        <li class="menu-item"><a href="portfolio-4-columns-with-frame.html">Portfolio 4 Columns With Frame</a></li>
+                                                        <li class="menu-item"><a href="portfolio-2-columns-no-space.html">Portfolio 2 Columns No Space</a></li>
+                                                        <li class="menu-item"><a href="portfolio-3-columns-no-space.html">Portfolio 3 Columns No Space</a></li>
+                                                        <li class="menu-item"><a href="portfolio-4-columns-no-space.html">Portfolio 4 Columns No Space</a></li>
+                                                        <li class="menu-item"><a href="portfolio-5-columns-no-space.html">Portfolio 5 Columns No Space</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children"><a>Portfolio Masonry</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="portfolio-masonry-4-columns.html">Masonry 4 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-masonry-3-columns.html">Masonry 3 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-masonry-2-columns.html">Masonry 2 Columns</a></li>
+                                                        <li class="menu-item"><a href="portfolio-masonry-4-columns-no-space.html">Masonry 4 Columns No Space</a></li>
+                                                        <li class="menu-item"><a href="portfolio-masonry-3-columns-no-space.html">Masonry 3 Columns No Space</a></li>
+                                                        <li class="menu-item"><a href="portfolio-masonry-2-columns-no-space.html">Masonry 2 Columns No Space</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="menu-item menu-item-has-children"><a>Portfolio Side Thumb</a>
+                                                    <ul class="sub-menu">
+
+                                                        <li class="menu-item"><a href="portfolio-left-small-thumbnail.html">Portfolio Left Small Thumbnail</a></li>
+                                                        <li class="menu-item"><a href="portfolio-right-small-thumbnail.html">Portfolio Right Small Thumbnail</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                        <li class="menu-item"><a href="price-table.html">Price Table</a></li>
+                                        <li class="menu-item"><a href="maintenance.html">Maintenance</a></li>
+                                        <li class="menu-item"><a href="coming-soon.html">Coming Soon</a></li>
+                                        <li class="menu-item"><a href="404.html">404 Page</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar.html">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html">Blog Full</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
+                                                <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
+                                                <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
+                                                <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
+                                                <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
+                                                <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
+                                                <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
+                                                <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="blog-3-columns-with-frame.html">Blog Columns</a>
+                                            <ul class="sub-menu">
+
+                                                <li class="menu-item"><a href="blog-2-columns.html">Blog 2 Columns</a></li>
+                                                <li class="menu-item"><a href="blog-3-columns.html">Blog 3 Columns</a></li>
+                                                <li class="menu-item"><a href="blog-4-columns.html">Blog 4 Columns</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item"><a href="standard-post-type.html">Single Posts</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="#">Features</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-has-children"><a href="#">Mega 1</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="accordions-toggles.html">Accordions &#038; Toggles</a></li>
+                                                <li class="menu-item"><a href="alert-box.html">Alert Box</a></li>
+                                                <li class="menu-item"><a href="blockquotes.html">Blockquotes</a></li>
+                                                <li class="menu-item"><a href="buttons.html">Buttons</a></li>
+                                                <li class="menu-item"><a href="call-to-action.html">Call To Action</a></li>
+                                                <li class="menu-item"><a href="column-services.html">Column Services</a></li>
+                                                <li class="menu-item"><a href="columns.html">Columns</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Mega 2</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="counters.html">Counters</a></li>
+                                                <li class="menu-item"><a href="count-down.html">Count Down</a></li>
+                                                <li class="menu-item"><a href="dividers.html">Dividers</a></li>
+                                                <li class="menu-item"><a href="dropcaps.html">Dropcaps</a></li>
+                                                <li class="menu-item"><a href="featured-boxes.html">Featured Boxes</a></li>
+                                                <li class="menu-item"><a href="flip-boxes.html">Flip Boxes</a></li>
+                                                <li class="menu-item"><a href="icon-list.html">Icon Lists</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Mega 3</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="icons.html">Icons</a></li>
+                                                <li class="menu-item"><a href="images.html">Images</a></li>
+                                                <li class="menu-item"><a href="price-table.html">Price Table</a></li>
+                                                <li class="menu-item"><a href="promo-boxes.html">Promo Boxes</a></li>
+                                                <li class="menu-item"><a href="skill-bar.html">Skill Bar</a></li>
+                                                <li class="menu-item"><a href="skill-circle.html">Skill Circle</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children"><a href="#">Mega 4</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="social-shares.html">Social Shares</a></li>
+                                                <li class="menu-item"><a href="stunning-texts.html">Stunning Texts</a></li>
+                                                <li class="menu-item"><a href="tabs-horizontal.html">Tabs Horizontal</a></li>
+                                                <li class="menu-item"><a href="tabs-vertical.html">Tabs Vertical</a></li>
+                                                <li class="menu-item"><a href="testimonial.html">Testimonial</a></li>
+                                                <li class="menu-item"><a href="titles.html">Titles</a></li>
+                                                <li class="menu-item"><a href="typography.html">Typography</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bigslam-body-outer-wrapper ">
+        <div class="bigslam-body-wrapper clearfix  bigslam-with-transparent-header bigslam-with-frame">
+            <div class="bigslam-header-background-transparent">
+                <div class="bigslam-top-bar">
+                    <div class="bigslam-top-bar-background"></div>
+                    <div class="bigslam-top-bar-container clearfix bigslam-top-bar-full ">
+                        <div class="bigslam-top-bar-left bigslam-item-pdlr"><span class="bigslam-upcoming-match-wrapper"><span class="bigslam-upcoming-match-title">Upcoming Match</span><span class="bigslam-upcoming-match-link">Big Slam VS Miami Heats<span class="bigslam-sep">/</span>March 10, 2022<span class="bigslam-sep">/</span>New Yorkers Stadium</span>
+                            </span>
+                        </div>
+                        <div class="bigslam-top-bar-right bigslam-item-pdlr">
+                            <div class="bigslam-top-bar-right-text"><i class="fa fa-envelope-open-o" style="font-size: 14px ;color: #ec4613 ;margin-right: 7px ;"></i> <a href="#" class="__cf_email__" data-cfemail="fb9894958f9a988fbb9c99929c88979a96d5989496">test@gmail.com</a><span style="margin-left: 20px; color: #ec4613;">/</span><i class="fa fa-phone" style="font-size: 14px ;color: #ec4613 ;margin-left: 20px ;margin-right: 7px ;"></i> 1800-22345 <span style="margin-left: 15px; color: #ec4613;">/</span></div>
+                            <div class="bigslam-top-bar-right-social"><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="facebook"><i class="fa fa-facebook"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="pinterest"><i class="fa fa-pinterest-p"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="twitter"><i class="fa fa-twitter"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="vimeo"><i class="fa fa-vimeo"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <header class="bigslam-header-wrap bigslam-header-style-plain  bigslam-style-menu-right bigslam-sticky-navigation bigslam-style-slide">
+                    <div class="bigslam-header-background"></div>
+                    <div class="bigslam-header-container  bigslam-header-full">
+
+                        <div class="bigslam-header-container-inner clearfix">
+                            <div class="bigslam-logo  bigslam-item-pdlr">
+                                <div class="bigslam-logo-inner">
+                                    <a href="index.html"><img src="upload/logo.png" alt="" width="131" height="160" title="logo"></a>
+                                </div>
+                            </div>
+                            <div class="bigslam-navigation bigslam-item-pdlr clearfix ">
+                                <div class="bigslam-main-menu" id="bigslam-main-menu">
+                                    <ul id="menu-main-navigation-1" class="sf-menu">
+                                        <li class="menu-item menu-item-home current-menu-item bigslam-normal-menu"><a href="index.html">Home</a></li>
+                                        <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="schedule.html" class="sf-with-ul-pre">Schedule</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item" data-size="60"><a href="schedule.html">Schedule – Default Style</a></li>
+                                                <li class="menu-item" data-size="60"><a href="schedule-featured-style.html">Schedule – Featured Style</a></li>
+                                                <li class="menu-item" data-size="60"><a href="schedule-medium-style.html">Schedule – Medium Style</a></li>
+                                                <li class="menu-item" data-size="60"><a href="schedule-widget-style.html">Schedule – Widget Style</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="player-list-default-style.html" class="sf-with-ul-pre">Players</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item" data-size="60"><a href="player-list-default-style.html">Player List – Default Style</a></li>
+                                                <li class="menu-item" data-size="60"><a href="player-list-gallery.html">Player List – Gallery</a></li>
+                                                <li class="menu-item" data-size="60"><a href="player-list-style-1.html">Player List – Style 1</a></li>
+                                                <li class="menu-item" data-size="60"><a href="player-list-style-2.html">Player List – Style 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item  bigslam-normal-menu"><a href="big-slam.html">Our Team</a></li>
+                                        <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="#" class="sf-with-ul-pre">SportsPress</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Game</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="games-details.html">Games Details</a></li>
+                                                        <li class="menu-item"><a href="game-results.html">Game Results</a></li>
+                                                        <li class="menu-item"><a href="game-box-scores.html">Game Box Scores</a></li>
+                                                        <li class="menu-item"><a href="game-calendar.html">Game Calendar</a></li>
+                                                        <li class="menu-item"><a href="game-list.html">Game List</a></li>
+                                                        <li class="menu-item"><a href="game-blocks.html">Game Blocks</a></li>
+                                                        <li class="menu-item"><a href="game-countdown.html">Game Countdown</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">Player</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="player-details.html">Player Details</a></li>
+                                                        <li class="menu-item"><a href="player-statics.html">Player Statics</a></li>
+                                                        <li class="menu-item"><a href="player-list-default-style.html">Player List</a></li>
+                                                        <li class="menu-item"><a href="player-list-gallery.html">Player  Gallery</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item" data-size="60"><a href="league-table.html">League Table</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="#" class="sf-with-ul-pre">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="#" class="sf-with-ul-pre">About</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="about-us.html">About Us</a></li>
+                                                        <li class="menu-item"><a href="about-us-2.html">About Us 2</a></li>
+                                                        <li class="menu-item"><a href="about-us-3.html">About Us 3</a></li>
+                                                        <li class="menu-item"><a href="about-our-team.html">About Our Team</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="portfolio-3-columns.html" class="sf-with-ul-pre">Portfolio</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item menu-item-has-children"><a class="sf-with-ul-pre">Portfolio Grid</a>
+                                                            <ul class="sub-menu">
+                                                                <li class="menu-item"><a href="portfolio-2-columns.html">Portfolio 2 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-3-columns.html">Portfolio 3 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-4-columns.html">Portfolio 4 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-5-columns.html">Portfolio 5 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-2-columns-with-frame.html">Portfolio 2 Columns With Frame</a></li>
+                                                                <li class="menu-item"><a href="portfolio-3-columns-with-frame.html">Portfolio 3 Columns With Frame</a></li>
+                                                                <li class="menu-item"><a href="portfolio-4-columns-with-frame.html">Portfolio 4 Columns With Frame</a></li>
+                                                                <li class="menu-item"><a href="portfolio-2-columns-no-space.html">Portfolio 2 Columns No Space</a></li>
+                                                                <li class="menu-item"><a href="portfolio-3-columns-no-space.html">Portfolio 3 Columns No Space</a></li>
+                                                                <li class="menu-item"><a href="portfolio-4-columns-no-space.html">Portfolio 4 Columns No Space</a></li>
+                                                                <li class="menu-item"><a href="portfolio-5-columns-no-space.html">Portfolio 5 Columns No Space</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item menu-item-has-children"><a class="sf-with-ul-pre">Portfolio Masonry</a>
+                                                            <ul class="sub-menu">
+                                                                <li class="menu-item"><a href="portfolio-masonry-4-columns.html">Masonry 4 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-masonry-3-columns.html">Masonry 3 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-masonry-2-columns.html">Masonry 2 Columns</a></li>
+                                                                <li class="menu-item"><a href="portfolio-masonry-4-columns-no-space.html">Masonry 4 Columns No Space</a></li>
+                                                                <li class="menu-item"><a href="portfolio-masonry-3-columns-no-space.html">Masonry 3 Columns No Space</a></li>
+                                                                <li class="menu-item"><a href="portfolio-masonry-2-columns-no-space.html">Masonry 2 Columns No Space</a></li>
+                                                            </ul>
+                                                        </li>
+
+                                                        <li class="menu-item menu-item-has-children"><a class="sf-with-ul-pre">Portfolio Side Thumb</a>
+                                                            <ul class="sub-menu">
+
+                                                                <li class="menu-item"><a href="portfolio-left-small-thumbnail.html">Portfolio Left Small Thumbnail</a></li>
+                                                                <li class="menu-item"><a href="portfolio-right-small-thumbnail.html">Portfolio Right Small Thumbnail</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item" data-size="60"><a href="contact.html">Contact</a></li>
+                                                <li class="menu-item" data-size="60"><a href="price-table.html">Price Table</a></li>
+                                                <li class="menu-item" data-size="60"><a href="maintenance.html">Maintenance</a></li>
+                                                <li class="menu-item" data-size="60"><a href="coming-soon.html">Coming Soon</a></li>
+                                                <li class="menu-item" data-size="60"><a href="404.html">404 Page</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="blog-full-right-sidebar.html" class="sf-with-ul-pre">Blog</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog Full</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
+                                                        <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
+                                                        <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
+                                                        <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
+                                                        <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
+                                                        <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Blog Grid</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
+                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
+                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-3-columns-with-frame.html" class="sf-with-ul-pre">Blog Columns</a>
+                                                    <ul class="sub-menu">
+
+                                                        <li class="menu-item"><a href="blog-2-columns.html">Blog 2 Columns</a></li>
+                                                        <li class="menu-item"><a href="blog-3-columns.html">Blog 3 Columns</a></li>
+                                                        <li class="menu-item"><a href="blog-4-columns.html">Blog 4 Columns</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item" data-size="60"><a href="standard-post-type.html">Single Posts</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="#" class="sf-with-ul-pre">Features</a>
+                                            <div class="sf-mega sf-mega-full">
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item menu-item-has-children" data-size="15">
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="accordions-toggles.html">Accordions &#038; Toggles</a></li>
+                                                            <li class="menu-item"><a href="alert-box.html">Alert Box</a></li>
+                                                            <li class="menu-item"><a href="blockquotes.html">Blockquotes</a></li>
+                                                            <li class="menu-item"><a href="buttons.html">Buttons</a></li>
+                                                            <li class="menu-item"><a href="call-to-action.html">Call To Action</a></li>
+                                                            <li class="menu-item"><a href="column-services.html">Column Services</a></li>
+                                                            <li class="menu-item"><a href="columns.html">Columns</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-has-children" data-size="15">
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="counters.html">Counters</a></li>
+                                                            <li class="menu-item"><a href="count-down.html">Count Down</a></li>
+                                                            <li class="menu-item"><a href="dividers.html">Dividers</a></li>
+                                                            <li class="menu-item"><a href="dropcaps.html">Dropcaps</a></li>
+                                                            <li class="menu-item"><a href="featured-boxes.html">Featured Boxes</a></li>
+                                                            <li class="menu-item"><a href="flip-boxes.html">Flip Boxes</a></li>
+                                                            <li class="menu-item"><a href="icon-list.html">Icon Lists</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-has-children" data-size="15">
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="icons.html">Icons</a></li>
+                                                            <li class="menu-item"><a href="images.html">Images</a></li>
+                                                            <li class="menu-item"><a href="price-table.html">Price Table</a></li>
+                                                            <li class="menu-item"><a href="promo-boxes.html">Promo Boxes</a></li>
+                                                            <li class="menu-item"><a href="skill-bar.html">Skill Bar</a></li>
+                                                            <li class="menu-item"><a href="skill-circle.html">Skill Circle</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-has-children" data-size="15">
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="social-shares.html">Social Shares</a></li>
+                                                            <li class="menu-item"><a href="stunning-texts.html">Stunning Texts</a></li>
+                                                            <li class="menu-item"><a href="tabs-horizontal.html">Tabs Horizontal</a></li>
+                                                            <li class="menu-item"><a href="tabs-vertical.html">Tabs Vertical</a></li>
+                                                            <li class="menu-item"><a href="testimonial.html">Testimonial</a></li>
+                                                            <li class="menu-item"><a href="titles.html">Titles</a></li>
+                                                            <li class="menu-item"><a href="typography.html">Typography</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="bigslam-navigation-slide-bar" id="bigslam-navigation-slide-bar"></div>
+                                    <div class="bigslam-navigation-slide-bar-small" id="bigslam-navigation-slide-bar-small"></div>
+                                </div>
+                                <div class="bigslam-main-menu-right-wrap clearfix ">
+                                    <div class="bigslam-main-menu-search" id="bigslam-top-search"><i class="fa fa-search"></i></div>
+                                    <div class="bigslam-top-search-wrap">
+                                        <div class="bigslam-top-search-close"></div>
+
+                                        <div class="bigslam-top-search-row">
+                                            <div class="bigslam-top-search-cell">
+                                                <form role="search" method="get" class="search-form" action="index.html">
+                                                    <input type="text" class="search-field bigslam-title-font" placeholder="Search..." value="" name="s">
+                                                    <div class="bigslam-top-search-submit"><i class="fa fa-search"></i></div>
+                                                    <input type="submit" class="search-submit" value="Search">
+                                                    <div class="bigslam-top-search-close"><i class="icon_close"></i></div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- bigslam-navigation -->
+                        </div>
+                        <!-- bigslam-header-inner -->
+                    </div>
+                    <!-- bigslam-header-container -->
+
+                    <div class="bigslam-navigation-slide-bar-long" id="bigslam-navigation-slide-bar-long"></div>
+                </header>
+                <!-- header -->
+            </div>
+            <!-- start content -->
+            <div style="margin-top: 20%;" class="bigslam-page-wrapper" id="bigslam-page-wrapper">
+                <div class="gdlr-core-page-builder-body">
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 0px 0px 0px 0px;">
+                        <div class="gdlr-core-pbf-background-wrap"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-pbf-wrapper-full-no-space">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-revolution-slider-item gdlr-core-item-pdlr gdlr-core-item-pdb " style="padding-bottom: 0px ;">
+                                        <!-- START Homepage REVOLUTION SLIDER 6.1.5 -->
+                                        <p class="rs-p-wp-fix"></p>
+                                        <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style="background:#212121;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+                                            <rs-module id="rev_slider_1_1" style="display:none;" data-version="6.1.5">
+                                                <rs-slides>
+                                                    <rs-slide data-key="rs-1" data-title="Slide" data-thumb="#" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
+                                                        <img src="upload/slider-1-2.jpg" title="Homepage" class="rev-slidebg" data-no-retina="">
+
+                                                        <rs-layer id="slider-1-slide-1-layer-1" data-type="text" data-color="#ec4613" data-rsp_ch="on" data-xy="xo:40px,40px,40px,45px;y:m;yo:-3px,-3px,-3px,-170px;" data-text="s:17;l:22;ls:3px;a:inherit;" data-frame_0="tp:600;" data-frame_1="tp:600;st:180;sR:180;" data-frame_999="o:0;tp:600;st:w;sR:8520;" style="z-index:5;font-family:Roboto Condensed;text-transform:uppercase;">Hey! We Are
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-2" class="tp-shape tp-shapewrapper" data-type="shape" data-rsp_ch="on" data-xy="xo:183px,183px,183px,177px;y:m;yo:-2px,-2px,-2px,-171px;" data-text="a:inherit;" data-dim="w:35px;h:1px;" data-frame_0="tp:600;" data-frame_1="tp:600;st:360;sR:360;" data-frame_999="o:0;tp:600;st:w;sR:8340;" style="z-index:6;background-color:#ec4613;">
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-3" data-type="text" data-color="#ec4613" data-rsp_ch="on" data-xy="xo:32px,32px,32px,41px;y:m;yo:87px,87px,87px,-97px;" data-text="s:140,140,140,80;l:auto,auto,auto,60;fw:700;a:inherit;" data-frame_0="tp:600;" data-frame_1="tp:600;e:Power3.easeOut;st:530;sp:1500;sR:530;" data-frame_999="o:0;tp:600;st:w;sR:6970;" style="z-index:7;font-family:Roboto Condensed;">BIG
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-4" data-type="text" data-rsp_ch="on" data-xy="xo:239px,239px,239px,164px;y:m;yo:87px,87px,87px,-97px;" data-text="s:140,140,140,80;l:auto,auto,auto,60;fw:700;a:inherit;" data-frame_0="tp:600;" data-frame_1="tp:600;e:Power3.easeOut;st:540;sp:1500;sR:540;" data-frame_999="o:0;tp:600;st:w;sR:6960;" style="z-index:8;font-family:Roboto Condensed;">SLAM
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-5" data-type="text" data-rsp_ch="on" data-xy="xo:38px,38px,38px,44px;y:m;yo:181px,181px,181px,-27px;" data-text="s:33,33,33,23;l:33;ls:1px;fw:300;a:inherit;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;st:700;sR:700;" data-frame_999="o:0;tp:600;st:w;sR:8000;" style="z-index:9;font-family:Roboto Condensed;">Basketball Club WordPress Theme
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-6" class="rev-btn" data-type="button" data-color="#000000" data-xy="xo:40px,40px,40px,47px;y:m;yo:265px,265px,265px,43px;" data-text="s:12;l:17;ls:1px;fw:700;a:inherit;" data-dim="h:auto,auto,auto,49px;" data-rsp_bd="off" data-padding="t:17,17,17,15;r:32,32,32,27;b:17,17,17,13;l:32,32,32,27;" data-border="bor:3px,3px,3px,3px;" data-frame_0="x:-200px;skX:85px;tp:600;" data-frame_1="tp:600;st:880;sR:880;" data-frame_999="o:0;tp:600;st:w;sR:7820;" data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:3px,3px,3px,3px;bos:solid;oX:50;oY:50;sp:0;" style="z-index:10;background-color:#ffffff;font-family:Roboto;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">Learn More
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-7" data-type="image" data-rsp_ch="on" data-xy="x:r;xo:418px,418px,418px,366px;y:b;yo:93px,93px,93px,111px;" data-text="l:22;a:inherit;" data-dim="w:85px,85px,85px,59px;h:43px,43px,43px,30px;" data-frame_0="tp:600;" data-frame_1="tp:600;st:1160;sR:1160;" data-frame_999="o:0;tp:600;st:w;sR:7540;" style="z-index:7;"><img src="upload/banner-1.png" width="85" height="43" data-no-retina="" alt="">
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-10" data-type="image" data-rsp_ch="on" data-xy="x:r;xo:229px,229px,229px,230px;y:b;yo:98px,98px,98px,113px;" data-text="l:22;a:inherit;" data-dim="w:150px,150px,150px,116px;h:14px,14px,14px,11px;" data-frame_0="tp:600;" data-frame_1="tp:600;st:1420;sR:1420;" data-frame_999="o:0;tp:600;st:w;sR:7280;" style="z-index:14;"><img src="upload/banner-2.png" width="150" height="14" data-no-retina="" alt="">
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-1-layer-11" data-type="image" data-rsp_ch="on" data-xy="x:r;xo:39px,39px,39px,92px;y:b;yo:92px,92px,92px,110px;" data-text="l:22;a:inherit;" data-dim="w:156px,156px,156px,113px;h:27px,27px,27px,20px;" data-frame_0="tp:600;" data-frame_1="tp:600;st:1710;sR:1710;" data-frame_999="o:0;tp:600;st:w;sR:6990;" style="z-index:15;"><img src="upload/banner-3.png" width="156" height="27" data-no-retina="" alt="">
+                                                        </rs-layer>
+                                                        <!---->
+                                                    </rs-slide>
+                                                    <rs-slide data-key="rs-3" data-title="Slide" data-thumb="#" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
+                                                        <img src="upload/slider-2-1.jpg" title="Homepage" data-bg="p:center top;" class="rev-slidebg" data-no-retina="">
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-3-layer-1" data-type="text" data-color="#ec4613" data-rsp_ch="on" data-xy="xo:40px,40px,40px,42px;y:m;yo:-3px,-3px,-3px,-165px;" data-text="s:17;l:22;ls:3px;a:inherit;" data-frame_0="tp:600;" data-frame_1="tp:600;st:180;sR:180;" data-frame_999="o:0;tp:600;st:w;sR:8520;" style="z-index:5;font-family:Roboto Condensed;text-transform:uppercase;">Meet the rookie!
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-3-layer-2" class="tp-shape tp-shapewrapper" data-type="shape" data-rsp_ch="on" data-xy="xo:232px,232px,232px,234px;y:m;yo:-3px,-3px,-3px,-166px;" data-text="a:inherit;" data-dim="w:35px;h:1px;" data-frame_0="tp:600;" data-frame_1="tp:600;st:360;sR:360;" data-frame_999="o:0;tp:600;st:w;sR:8340;" style="z-index:6;background-color:#ec4613;">
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-3-layer-3" data-type="text" data-color="#ec4613" data-rsp_ch="on" data-xy="xo:32px,32px,32px,37px;y:m;yo:87px,87px,87px,-96px;" data-text="s:115,115,115,60;l:auto,auto,auto,70;fw:700;a:inherit;" data-frame_0="tp:600;" data-frame_1="tp:600;e:Power3.easeOut;st:530;sp:1500;sR:530;" data-frame_999="o:0;tp:600;st:w;sR:6970;" style="z-index:7;font-family:Roboto Condensed;">BLAKE
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-3-layer-4" data-type="text" data-rsp_ch="on" data-xy="xo:365px,365px,365px,213px;y:m;yo:87px,87px,87px,-96px;" data-text="s:115,115,115,60;l:auto,auto,auto,70;fw:700;a:inherit;" data-frame_0="tp:600;" data-frame_1="tp:600;e:Power3.easeOut;st:540;sp:1500;sR:540;" data-frame_999="o:0;tp:600;st:w;sR:6960;" style="z-index:8;font-family:Roboto Condensed;">GIFFIN
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-3-layer-5" data-type="text" data-rsp_ch="on" data-xy="xo:38px,38px,38px,40px;y:m;yo:164px,164px,164px,-44px;" data-text="s:33,33,33,23;l:33;ls:1px;fw:300;a:inherit;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;st:700;sR:700;" data-frame_999="o:0;tp:600;st:w;sR:8000;" style="z-index:9;font-family:Roboto Condensed;">Most Scoring Player in 2017
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                        <rs-layer id="slider-1-slide-3-layer-6" class="rev-btn" data-type="button" data-color="#000000" data-xy="xo:40px,40px,40px,41px;y:m;yo:246px,246px,246px,32px;" data-text="s:12;l:17;ls:1px;fw:700;a:inherit;" data-rsp_bd="off" data-padding="t:17,17,17,15;r:32,32,32,27;b:17,17,17,15;l:32,32,32,27;" data-border="bor:3px,3px,3px,3px;" data-frame_0="x:-200px;skX:85px;tp:600;" data-frame_1="tp:600;st:880;sR:880;" data-frame_999="o:0;tp:600;st:w;sR:7820;" data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:3px,3px,3px,3px;bos:solid;oX:50;oY:50;sp:0;" style="z-index:10;background-color:#ffffff;font-family:Roboto;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">Learn More
+                                                        </rs-layer>
+                                                        <!-- -->
+                                                    </rs-slide>
+                                                </rs-slides>
+                                                <rs-progress class="rs-bottom" style="visibility: hidden !important;"></rs-progress>
+                                            </rs-module>
+
+                                        </rs-module-wrap>
+                                        <!-- END REVOLUTION SLIDER -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gdlr-core-pbf-wrapper " style="padding: 120px 0px 80px 0px;">
+                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #f7f7f7 ;"></div>
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr">
+                                        <div class="gdlr-core-title-item-title-wrap  gdlr-core-js-2 gdlr-core-with-divider">
+                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="margin-left: 30px ;margin-right: 30px ;">Votre Panier<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h3>
+                                            <div class="gdlr-core-title-item-divider gdlr-core-left gdlr-core-skin-divider" style="border-color: rgb(216, 216, 216); width: 295px;"></div>
+                                            <div class="gdlr-core-title-item-divider gdlr-core-right gdlr-core-skin-divider" style="border-color: rgb(216, 216, 216); width: 295px;"></div>
+                                        </div>
+                                        <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"> Votre identifiant : 122 </span>
+                                        <table style="padding-left: 550px; padding-right: 600px; alignment: center;">
+                                            <tr>
+                                                <td style="alignment: center;">
+                                                    <a href="http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/product/list_product_client">
+                                                        <i class="gdlr-core-icon-list-icon fa fa-institution" style="color: orangered ;font-size: 30px ;width: 16px ;"></i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/command/list_command_client" class="tooltip">
+                                                        <i class=" gdlr-core-icon-item-icon fa fa-gears" style="color: orangered ;font-size: 30px;"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gdlr-core-pbf-element">
+                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px ;">
+                            <div class="gdlr-core-text-box-item-content">
+                                <div class="sportspress sp-widget-align-none">
+                                    <div class="sp-template sp-template-event-list">
+                                        <div class="sp-table-wrapper">
+                                            <table class="sp-event-list sp-event-list-format-title sp-data-table sp-paginated-table sp-sortable-table sp-scrollable-table" data-sp-rows="10">
+                                                <thead>
+                                                <tr>
+                                                    <th class="data-venue">photo</th>
+                                                    <th class="data-event">Category</th>
+                                                    <th class="data-time">Stock</th>
+                                                    <th class="data-league">Nom</th>
+                                                    <th class="data-season">Prix</th>
+                                                    <th class="data-event">Quantité</th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <!-- <tr class="sp-row sp-post alternate sp-row-no-0">
+                                                     <td class="data-date">
+                                                         <a href="#">
+
+                                                         </a>
+                                                     </td>
+                                                     <td class="data-event"><a href="#"> Big Slam VS Houston </a></td>
+                                                     <td class="data-time">
+                                                         <a href="#">
+                                                             <date>&nbsp;08:53:20</date>8:53 am</a>
+                                                     </td>
+                                                     <td class="data-league">NBA</td>
+                                                     <td class="data-season">2017</td>
+                                                     <td class="data-venue">Houston House</td>
+                                                     <td class="data-article">
+                                                         <a href="#">
+                                                             <div class="dashicons dashicons-video-alt"></div>Preview</a>
+                                                     </td>-->
+                                                {% for key,product in data %}
+                                                    <tr class="sp-row sp-post alternate sp-row-no-0">
+                                                        <td>
+                                                            <img style="height: 100px; width: 100px" src="http://127.0.0.1/ftbb_web/ftbb_web/public/images/prod/{{ product.photo }}" >
+                                                        </td>
+                                                        <td>
+                                                            {{ product.category }}
+                                                        </td>
+                                                        <td  class="data-event">
+                                                            <a name="stock">{{ product.stock }} </a>
+                                                        </td>
+                                                        <td>
+                                                            {{ product.name }}
+                                                        </td>
+                                                        <td class="data-event">
+                                                            {{ product.price }} DT
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" value="{{ num[key] }}" name="qt" style="border: none; border-radius: 5px; width: 40px; padding: 10px;">
+                                                            <button style="color: white; border: none; border-radius: 5px; background-color: orangered;" onclick="
+                                                                    $.get('http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/cart/quant/'+document.getElementsByName('qt')[{{ key }}].value+'/{{ product.refProduct }}', function(data, status) {
+                                                                        document.getElementsByName('stock')[{{ key }}].innerHTML =  data.stock;
+                                                                        document.getElementById('tot').innerHTML = 'TOTAL: '+ data.tot + 'DT';
+                                                                    });
+
+                                                                    ">
+                                                            <i class="gdlr-core-icon-list-icon fa fa-flash" style="color: white ;font-size: 20px ;width: 20px ;"></i>
+                                                            </button>
+                                                        </td>
+                                                        <td class="data-article">
+                                                            <a href="/ftbb_web/ftbb_web/public/index.php/cart/supprimer/{{ product.refProduct}}" role="button">
+                                                                <div class="dashicons dashicons-video-alt"></div> Supprimer
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                        <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                            <div class="gdlr-core-pbf-element">
+                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr">
+                                    <div class="gdlr-core-title-item-title-wrap  gdlr-core-js-2 gdlr-core-with-divider">
+                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-weight: 600 ;color: #858585 ;">
+                                            <a id="tot">TOTAL : {{ total }} DT</a>
+                                            <span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                        </h3>
+                                        <div class="gdlr-core-title-item-divider gdlr-core-left gdlr-core-skin-divider" style="border-bottom: 2px dashed #858585; border-top-style: dashed; border-right-style: dashed; border-left-style: dashed; border-top-color: #2e2e2e; border-right-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255); width: 203px;"></div>
+                                        <div class="gdlr-core-title-item-divider gdlr-core-right gdlr-core-skin-divider" style="border-bottom: 2px dashed #858585; border-top-style: dashed; border-right-style: dashed; border-left-style: dashed; border-top-color: #2e2e2e; border-right-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255); width: 203px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
+                        <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/command/add_new_command" id="gdlr-core-button-id-48095">PASSER COMMANDE<span class="gdlr-core-content"></span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end content -->
+            <footer>
+                <div class="bigslam-footer-wrapper">
+                    <div class="bigslam-footer-container bigslam-container clearfix">
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-15">
+                            <div id="text-2" class="widget widget_text bigslam-widget">
+                                <h3 class="bigslam-widget-title">Contact Info</h3>
+                                <div class="textwidget">
+                                    <p><i class="fa fa-location-arrow" style="font-size: 14px ;color: #fff ;margin-right: 16px ;"></i>12 Main Street Pt. London
+                                        <br>
+                                        <span class="gdlr-core-space-shortcode" style="margin-top: -9px ;"></span>
+                                        <br>
+                                        <i class="fa fa-envelope-o" style="font-size: 14px ;color: #fff ;margin-right: 16px ;"></i><a href="/cdn-cgi/l/email-protection#375458594356544377555e50445b565a435f525a521954585a"><span class="__cf_email__" data-cfemail="e784888993868493a7858e80948b868a938f828a82c984888a">[email&#160;protected]</span></a>
+                                        <br>
+                                        <span class="gdlr-core-space-shortcode" style="margin-top: -9px ;"></span>
+                                        <br>
+                                        <i class="fa fa-phone" style="font-size: 14px ;color: #fff ;margin-right: 16px ;"></i><span style="color: #fff; font-size: 20px; font-weight: 700;">+44 3656 4567 </span></p>
+                                    <p><span class="gdlr-core-space-shortcode" style="margin-top: 30px ;"></span>
+                                        <br>
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook" style="font-size: 16px ;color: #ec4613 ;margin-right: 20px ;"></i></a> <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" style="font-size: 16px ;color: #ec4613 ;margin-right: 20px ;"></i></a> <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" style="font-size: 16px ;color: #ec4613 ;margin-right: 20px ;"></i></a> <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa fa-pinterest-p" style="font-size: 16px ;color: #ec4613 ;margin-right: 20px ;"></i></a> <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa fa-vimeo" style="font-size: 16px ;color: #ec4613 ;margin-right: 20px ;"></i></a> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-15">
+                            <div id="recent-posts-3" class="widget widget_recent_entries bigslam-widget">
+                                <h3 class="bigslam-widget-title">Recent Posts</h3>
+                                <ul>
+                                    <li>
+                                        <a href="#">Gallery Post Format</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Possession of my entire soul</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Audio Post Format</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Quote Post Format</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-15">
+                            <div id="gdlr-core-recent-portfolio-widget-1" class="widget widget_gdlr-core-recent-portfolio-widget bigslam-widget">
+                                <h3 class="bigslam-widget-title">Recent Works</h3>
+                                <div class="gdlr-core-recent-portfolio-widget-wrap clearfix">
+                                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                                        <a href="#"><img src="upload/shutterstock_220438474-150x150.jpg" alt="" width="150" height="150" title="shutterstock_220438474"><span class="gdlr-core-image-overlay "><i class="gdlr-core-image-overlay-icon  gdlr-core-size-15 icon_link_alt"></i></span></a>
+                                    </div>
+                                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                                        <a href="#"><img src="upload/shutterstock_306179018-150x150.jpg" alt="" width="150" height="150" title="shutterstock_306179018"><span class="gdlr-core-image-overlay "><i class="gdlr-core-image-overlay-icon  gdlr-core-size-15 icon_link_alt"></i></span></a>
+                                    </div>
+                                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                                        <a href="#"><img src="upload/shutterstock_247257382-150x150.jpg" alt="" width="150" height="150" title="shutterstock_247257382"><span class="gdlr-core-image-overlay "><i class="gdlr-core-image-overlay-icon  gdlr-core-size-15 icon_link_alt"></i></span></a>
+                                    </div>
+                                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                                        <a href="#"><img src="upload/shutterstock_326061359-150x150.jpg" alt="" width="150" height="150" title="shutterstock_326061359"><span class="gdlr-core-image-overlay "><i class="gdlr-core-image-overlay-icon  gdlr-core-size-15 icon_link_alt"></i></span></a>
+                                    </div>
+                                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                                        <a href="#"><img src="upload/pexels-photo-24546-150x150.jpg" alt="" width="150" height="150" title="pexels-photo-24546"><span class="gdlr-core-image-overlay "><i class="gdlr-core-image-overlay-icon  gdlr-core-size-15 icon_link_alt"></i></span></a>
+                                    </div>
+                                    <div class="gdlr-core-recent-portfolio-widget gdlr-core-media-image">
+                                        <a href="#"><img src="upload/shoes-lebron-nike-spalding-150x150.jpg" alt="" width="150" height="150" title="shoes-lebron-nike-spalding"><span class="gdlr-core-image-overlay "><i class="gdlr-core-image-overlay-icon  gdlr-core-size-15 icon_link_alt"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-15">
+                            <div id="text-1" class="widget widget_text bigslam-widget">
+                                <div class="textwidget">
+                                    <div class="bigslam-center-align"><img src="upload/logo.png" alt="" width="90">
+                                        <span class="gdlr-core-space-shortcode" style="margin-top: 20px ;"></span>
+                                        <h6>Big Slam</h6> Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bigslam-copyright-wrapper">
+                    <div class="bigslam-copyright-container bigslam-container clearfix">
+                        <div class="bigslam-copyright-left bigslam-item-pdlr"><a href="index.html" style="margin-right: 30px;">Home</a><a href="#" style="margin-right: 30px;">About</a><a href="#" style="margin-right: 30px;">News</a><a href="#">Contact </a></div>
+                        <div class="bigslam-copyright-right bigslam-item-pdlr">Copyright 2019 Max Themes, All Right Reserved</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div><a href="#bigslam-top-anchor" class="bigslam-footer-back-to-top-button" id="bigslam-footer-back-to-top-button"><i class="fa fa-angle-up"></i></a>
+
+{% endblock %}

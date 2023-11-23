@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Vote" table="vote">
+    <indexes>
+      <index name="option_id" columns="option_id"/>
+      <index name="client_id" columns="client_id"/>
+    </indexes>
+    <id name="voteId" type="integer" column="vote_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="clientId" type="integer" column="client_id" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="voteNbr" type="integer" column="vote_nbr" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <many-to-one field="option" target-entity="Options" fetch="LAZY">
+      <join-columns>
+        <join-column name="option_id" referenced-column-name="option_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

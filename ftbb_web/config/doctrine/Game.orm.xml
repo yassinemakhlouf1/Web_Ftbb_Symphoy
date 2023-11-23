@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Game" table="game">
+    <indexes>
+      <index name="ph2" columns="id_phase"/>
+      <index name="t3" columns="id_team_away"/>
+      <index name="statistique" columns="id_statistique"/>
+      <index name="t4" columns="id_team_home"/>
+      <index name="w1" columns="id_week"/>
+      <index name="c3" columns="id_competition"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="scoreHome" type="integer" column="score_home" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="scoreAway" type="integer" column="score_away" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="status" type="integer" column="status" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="salle" type="string" column="salle" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="time" type="date" column="time" nullable="true"/>
+    <many-to-one field="idCompetition" target-entity="Competition" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_competition" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPhase" target-entity="Phase" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_phase" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idStatistique" target-entity="Statistique" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_statistique" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idTeamAway" target-entity="Team" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_team_away" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idTeamHome" target-entity="Team" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_team_home" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idWeek" target-entity="Week" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_week" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div style="margin-top: 20%;" class="bigslam-page-wrapper" id="bigslam-page-wrapper">
+                        <div class="gdlr-core-page-builder-body">
+                            <div class="gdlr-core-pbf-section">
+                                <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
+                                    <div class="gdlr-core-pbf-element">
+                                        <div class="gdlr-core-blog-item gdlr-core-item-pdb clearfix  gdlr-core-style-blog-image" style="padding-bottom: 40px ;">
+                                            <div class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
+
+                                                {% for galerie in galeries %}
+                                                <!--A single post start-->
+                                                    <div class="gdlr-core-item-list gdlr-core-blog-full  gdlr-core-item-pdlr gdlr-core-style-left">
+                                                        <div >
+                                                            <a href="http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/galerie/{{galerie.galerieId}}">
+                                                            </a>
+                                                        </div>
+                                                        
+                                                        <div class="gdlr-core-blog-full-content">
+                                                            <img width="500px" height="300px" src="{{galerie.photoUrl}}" alt="Card image cap" class="card-img-top">
+                                                            <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 40px ;font-weight: 800 ;letter-spacing: 0px ;">{{ galerie.photoTitle }}</h3>
+                                                            
+                                                            <div class="gdlr-core-blog-content">{{ galerie.description|length > 200 ? galerie.description|slice(0, 200) ~ '...' : galerie.description  }}
+                                                        </div>
+                                                    </div>
+                                                <!-- A single post end-->
+                                                {% endfor %}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}

@@ -1,0 +1,79 @@
+<html>
+<head>
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+                                                                    {# <th scope="col"> logo </th> #}
+                                                                    <th scope="col">TEAM</th> 
+                                                                    <th scope="col">PTS</th>
+                                                                    <th scope="col">Played</th>
+                                                                    <th scope="col">win</th>
+                                                                    <th scope="col">lost</th>
+                                                                    <th scope="col">Diff</th>
+
+ 
+    </tr>
+  </thead>
+  <tbody>
+        {% set i = 1 %}
+             {% for c in classement | sort((a, b) =>  b.nbrPts <=>  a.nbrPts  )  %}
+                                                              
+                                                                <tr class="lineup odd">
+                                                                    <td class="data-number" data-label="#">{{ i }}</td>
+                                                                    {% set i = i  + 1 %}
+                                                                    {# <td class="data-position" data-label="Position">
+                                                                       <img src="{{ asset('uploads/logo/'~ c.idTeam.logo)}}" width="30"  >
+                                                                 </td> #}
+                                                                    <td class="data-name" data-label="Player"><a >{{ c.idTeam.name }}</a></td>
+                                                                   
+                                                                    <td class="data-pts" data-label="PTS">{{ c.nbrPts }}</td>
+                                                                    <td class="data-reb" data-label="REB">
+                                                                     {% if c.nbrPtsP == null  %}
+                                                                    0 
+                                                                    {% else %}
+                                                                   {{ c.nbrPtsP }}
+                                                                    {% endif %}
+                                                                   
+                                                                   </td>
+                                                                    <td class="data-ast" data-label="AST">
+                                                                        {% if c.nbrPtsG == null  %}
+                                                                    0 
+                                                                    {% else %}
+                                                                    {{ c.nbrPtsG }}
+                                                                    {% endif %}
+                                                                   
+                                                                    </td>
+                                                                    <td class="data-stl" data-label="STL">                                                                               
+                                                                    {% if c.nbrPtsD == null  %}
+                                                                        0 
+                                                                        {% else %}
+                                                                    {{c.nbrPtsD}}
+                                                                        {% endif %}
+                                           
+                                                                    </td>
+                                                                    <td class="data-blk" data-label="BLK">
+                                                                       {% if c.ptsDiff == null  %}
+                                                                    0 
+                                                                    {% else %}
+                                                                  {{ c.ptsDiff }}
+                                                                    {% endif %}
+                                                                   
+                                                                  
+                                                                    </td>
+                                                                    
+                                                                </tr>
+                                                                 {% endfor %}
+ 
+
+  </tbody>
+
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</table>
+</body>
+</html>

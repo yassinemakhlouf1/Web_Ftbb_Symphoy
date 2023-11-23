@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Classement" table="classement">
+    <indexes>
+      <index name="c2" columns="id_competition"/>
+      <index name="ph1" columns="id_phase"/>
+      <index name="t2" columns="id_team"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nbrPtsP" type="integer" column="nbr_pts_P" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="nbrPtsG" type="integer" column="nbr_pts_G" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="nbrPtsD" type="integer" column="nbr_pts_D" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="ptsDiff" type="integer" column="pts_diff" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="nbrPts" type="integer" column="nbr_pts" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <many-to-one field="idCompetition" target-entity="Competition" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_competition" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPhase" target-entity="Phase" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_phase" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idTeam" target-entity="Team" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_team" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

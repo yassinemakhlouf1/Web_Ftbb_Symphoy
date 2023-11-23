@@ -1,0 +1,220 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="bigslam-page-wrapper" id="bigslam-page-wrapper">
+   <div class="bigslam-blog-title-wrap  bigslam-style-small">
+      <div class="bigslam-header-transparent-substitute" style="height: 234px;"></div>
+      <div class="bigslam-blog-title-top-overlay"></div>
+      <div class="bigslam-blog-title-overlay"></div>
+      <div class="bigslam-blog-title-container bigslam-container">
+         <div class="bigslam-blog-title-content bigslam-item-pdlr">
+            <header class="bigslam-single-article-head clearfix">
+               <div class="bigslam-single-article-date-wrapper">
+                  <div class="bigslam-single-article-date-day">{{article.date | date('d')}}</div>
+                  <div class="bigslam-single-article-date-month">{{article.date | date('F')}}</div>
+                  <div class="bigslam-single-article-date-year">{{article.date | date('Y')}}</div>
+               </div>
+               <div class="bigslam-single-article-head-right">
+                  <h1 class="bigslam-single-article-title">{{article.title}}</h1>
+                  <div class="bigslam-blog-info-wrapper">
+                     <div class="bigslam-blog-info bigslam-blog-info-font bigslam-blog-info-category"><span class="bigslam-head"><i class="icon_folder-alt"></i></span><a href="#" rel="tag">
+                        {% if article.category == 0 %}
+                        Breaking News
+                        {% elseif article.category == 1 %}
+                        Hot
+                        {% elseif article.category == 2 %}
+                        Announce
+                        {% else %}
+                        Misc
+                        {% endif %}
+                        </a>
+                     </div>
+                     <div class="bigslam-blog-info bigslam-blog-info-font bigslam-blog-info-comment-number"><span class="bigslam-head"><i class="icon_comment_alt"></i></span>{{article.getCommentsCount()}}</div>
+                  </div>
+               </div>
+            </header>
+         </div>
+      </div>
+   </div>
+   <div class="bigslam-content-container bigslam-container">
+      <div class=" bigslam-sidebar-wrap clearfix bigslam-line-height-0 bigslam-sidebar-style-right">
+         <div class=" bigslam-sidebar-center bigslam-column-40 bigslam-line-height">
+            <div class="bigslam-content-wrap bigslam-item-pdlr clearfix">
+               <div class="bigslam-content-area">
+                  <article id="post-1268" class="post-1268 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-post-format tag-news">
+                     <div class="bigslam-single-article">
+                        <div class="bigslam-single-article-thumbnail bigslam-media-image"><img src="{{article.photoUrl}}" width="1800" height="1200" sizes="(max-width: 767px) 100vw, (max-width: 1150px) 100vw, 1150px" alt=""></div>
+                        <div class="bigslam-single-article-content">
+                           <div>
+                              {% apply html_to_markdown %}
+                              {{article.text}}
+                              {% endapply %}
+                           </div>
+                           <span class="gdlr-core-space-shortcode" style="margin-top: 30px ;"></span>  
+                        </div>
+                     </div>
+                     <!-- bigslam-single-article -->
+                  </article>
+                  <!-- post-id -->
+               </div>
+               <div class="bigslam-page-builder-wrap bigslam-item-rvpdlr">
+                  <div class="gdlr-core-page-builder-body"></div>
+               </div>
+               <div class="gdlr-core-pbf-element">
+                  <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"><a onclick="window.open('https://www.facebook.com/dialog/share?app_id=1155678251616612&display=popup&quote=ftbb&href='+window.location.href)"  class="gdlr-core-button  gdlr-core-button-gradient gdlr-core-button-no-border" href="#" style="font-size: 13px ;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;background: #6c8ee2 ;background: linear-gradient(#6c8ee2, #4b76e3);-moz-background: linear-gradient(#6c8ee2, #4b76e3);-o-background: linear-gradient(#6c8ee2, #4b76e3);-webkit-background: linear-gradient(#6c8ee2, #4b76e3);"><span class="gdlr-core-content">Share to Facebook</span></a></div>
+               </div>
+               <div class="gdlr-core-pbf-element">
+                  <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"><a onclick="window.open('http://twitter.com/share?text=ftbb%0A&url='+window.location.href)"  class="gdlr-core-button  gdlr-core-button-gradient gdlr-core-button-no-border" href="#" style="font-size: 13px ;background: #6eb6ea ;background: linear-gradient(#6eb6ea, #2d9bea);-moz-background: linear-gradient(#6eb6ea, #2d9bea);-o-background: linear-gradient(#6eb6ea, #2d9bea);-webkit-background: linear-gradient(#6eb6ea, #2d9bea);"><span class="gdlr-core-content">Share to Twitter</span></a></div>
+               </div>
+               <div class="clear"></div>
+               {% if article.likes is empty %}
+               <div class="comment-reply">
+                  <button onclick="
+                     $.get('http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/likes/click/article/{{article.articleId}}', function(data, status) {
+                     if(document.getElementById('like_art').style.color == 'black'){
+                     document.getElementById('like_art').style.color = 'blue';
+                     document.getElementById('like_art').innerHTML = 'Like - '+ data.count ;
+                     }else{
+                     document.getElementById('like_art').style.color = 'black';
+                     document.getElementById('like_art').innerHTML = 'Like - '+ data.count ;
+                     }
+                     });
+                     " class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border">
+                  <a id="like_art" rel="nofollow"  style="color: black;" class="comment-reply-link" href="#" data-commentid="5" data-postid="1268" data-belowelement="comment-5" data-respondelement="respond" aria-label="Reply to John Smith">Like - {{article.getLikesCount()}}</a>
+                  </button>
+               </div>
+               {% else %}
+               {% for like in article.likes %}
+               <div class="comment-reply">
+                  <button onclick="
+                     $.get('http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/likes/click/article/{{article.articleId}}', function(data, status) {
+                     if(document.getElementById('like_art').style.color == 'black'){
+                     document.getElementById('like_art').style.color = 'blue';
+                     document.getElementById('like_art').innerHTML = 'Like - '+ data.count ;
+                     }else{
+                     document.getElementById('like_art').style.color = 'black';
+                     document.getElementById('like_art').innerHTML = 'Like - '+ data.count ;
+                     }
+                     });
+                     " class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border">
+                  <a id="like_art" rel="nofollow" {% if like.idClient.id == id_cli %} style="color: blue;" {% endif %} class="comment-reply-link" href="#" data-commentid="5" data-postid="1268" data-belowelement="comment-5" data-respondelement="respond" aria-label="Reply to John Smith">Like - {{article.getLikesCount()}}</a>
+                  </button>
+               </div>
+               {% endfor %}
+               {% endif %}
+               <div class="bigslam-single-author">
+                  <div class="bigslam-single-author-wrap">
+                     <div class="bigslam-single-author-avartar bigslam-media-image"><img alt="" src="https://secure.gravatar.com/avatar/67b587616031ee8e892e9418558406ed?s=90&amp;d=mm&amp;r=g" class="avatar avatar-90 photo" height="90" width="90"></div>
+                     <div class="bigslam-single-author-content-wrap">
+                        <div class="bigslam-single-author-caption bigslam-info-font">About the author</div>
+                        <h4 class="bigslam-single-author-title"><a href="#" title="Posts by John Smith" rel="author">{{article.author}}</a></h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="bigslam-single-nav-area clearfix"><span class="bigslam-single-nav bigslam-single-nav-left"><a href="../image-post-format/index.htm" rel="prev"><i class="arrow_left"></i><span class="bigslam-text">Prev</span></a>
+                  </span><span class="bigslam-single-nav bigslam-single-nav-right"><a href="../this-is-an-awesome-sticky-post/index.htm" rel="next"><span class="bigslam-text">Next</span><i class="arrow_right"></i></a>
+                  </span>
+               </div>
+               <div id="comments" class="bigslam-comments-area">
+                  <div class="bigslam-comments-title">{{article.getCommentsCount()}} Comments</div>
+                  <ol class="comment-list">
+                     <!-- #comment-## -->
+                     {% for k,comment in article.comments %}
+                     <li class="comment byuser comment-author-superuser bypostauthor even thread-even depth-1" id="li-comment-5">
+                        <article id="comment-5" class="comment-article">
+                           <div class="comment-avatar"><img alt="" src="https://secure.gravatar.com/avatar/67b587616031ee8e892e9418558406ed?s=90&amp;d=mm&amp;r=g" class="avatar avatar-90 photo" height="90" width="90"></div>
+                           <div class="comment-body">
+                              <header class="comment-meta">
+                                 <div class="comment-author bigslam-title-font"></div>
+                                 <div class="comment-time bigslam-info-font">
+                                    <a style="color: black;" href="index.htm#comment-5">
+                                    {{comment.client.name}} {{" "}} {{comment.client.surname}}
+                                    </a> 
+                                 </div>
+                                 <div class="comment-time bigslam-info-font">
+                                    <a href="index.htm#comment-5">
+                                    {{comment.date | format_datetime()}}
+                                    </a>
+                                 </div>
+                                 {% if comment.likes is empty %}
+                                 <div class="comment-reply">
+                                    <button style="padding: 10px; margin-down: 80px; background-color: #fc7f03;" onclick="
+                                       $.get('http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/likes/click/comment/{{comment.id}}/{{comment.article.articleId}}', function(data, status) {
+                                       if(document.getElementsByClassName('like_com')[{{k}}].style.color == 'black'){
+                                       document.getElementsByClassName('like_com')[{{k}}].style.color = 'blue';
+                                       document.getElementsByClassName('like_com')[{{k}}].innerHTML = 'Like - '+ data.count ;
+                                       }else{
+                                       document.getElementsByClassName('like_com')[{{k}}].style.color = 'black';
+                                       document.getElementsByClassName('like_com')[{{k}}].innerHTML = 'Like - '+ data.count ;
+                                       }
+                                       });
+                                       ">
+                                    <a rel="nofollow"  class="like_com comment-reply-link" style="color: black;" href="#" data-commentid="5" data-postid="1268" data-belowelement="comment-5" data-respondelement="respond" aria-label="Reply to John Smith">Like - {{comment.getLikesCount()}}</a> 
+                                    </button>
+                                 </div>
+                                 {% else %}
+                                 {% for like in comment.likes %}
+                                 <div class="comment-reply">
+                                    <button style="padding: 10px; margin-down: 80px; background-color: #fc7f03;" onclick="
+                                       $.get('http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/likes/click/comment/{{comment.id}}/{{comment.article.articleId}}', function(data, status) {
+                                       if(document.getElementsByClassName('like_com')[{{k}}].style.color == 'black'){
+                                       document.getElementsByClassName('like_com')[{{k}}].style.color = 'blue';
+                                       document.getElementsByClassName('like_com')[{{k}}].innerHTML = 'Like - '+ data.count ;
+                                       }else{
+                                       document.getElementsByClassName('like_com')[{{k}}].style.color = 'black';
+                                       document.getElementsByClassName('like_com')[{{k}}].innerHTML = 'Like - '+ data.count ;
+                                       }
+                                       });
+                                       ">
+                                    <a rel="nofollow" {% if like.idClient.id == id_cli %} style="color: blue;" {% endif %} class="like_com comment-reply-link" href="#" data-commentid="5" data-postid="1268" data-belowelement="comment-5" data-respondelement="respond" aria-label="Reply to John Smith">Like - {{comment.getLikesCount()}}</a> 
+                                    </button>
+                                 </div>
+                                 {% endfor %}
+                                 {% endif %}
+                                 <!-- reply -->
+                                 {% if comment.client.id == id_cli %}
+                                 <!--delete-->
+                                 <div class="comment-reply">
+                                    <a rel="nofollow" style="position: absolute; right: 100px; width: 70px; font-size: 12px;" class="comment-reply-link" href="http://127.0.0.1/ftbb_web/ftbb_web/public/index.php/article/{{comment.article.articleId}}/comment/{{comment.id}}/delete" data-commentid="5" data-postid="1268" data-belowelement="comment-5" data-respondelement="respond" aria-label="Reply to John Smith">Remove</a> 
+                                 </div>
+                                 {% endif %}
+                              </header>
+                              <section class="comment-content">
+                                 <p>{{comment.content}}</p>
+                              </section>
+                              <!-- comment-content -->
+                           </div>
+                           <!-- comment-body -->
+                        </article>
+                        <!-- comment-article -->
+                     </li>
+                     <!-- #comment-## -->
+                     {% endfor %}
+                  </ol>
+                  <div id="respond" class="comment-respond">
+                     <h4 id="reply-title" class="comment-reply-title bigslam-content-font">Leave a Comment<small><a rel="nofollow" id="cancel-comment-reply-link" href="index.htm#respond" style="display:none;">Cancel Reply</a></small></h4>
+                     {{ form_start(form) }}
+                     <div class="comment-form-comment">
+                        {{ form_widget(form.content, {'attr': {'placeholder': 'Comment*', 'aria-required': 'true', 'cols':'45', 'rows': '8', 'id':'comment', 'name':'comment'}}) }}
+                     </div>
+                     <p class="form-submit">
+                        {{ form_widget(form.post, {'attr': {'type': 'submit', 'class':'submit'}}) }}
+                        <input type="hidden" name="comment_post_ID" value="1268" id="comment_post_ID">
+                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                     </p>
+                     <!-- Anti-spam plugin v.5.5 wordpress.org/plugins/anti-spam/ -->
+                     <p class="antispam-group antispam-group-e" style="display: none;">
+                        <label>Leave this field empty</label>
+                        <input type="text" name="antspm-e-email-url-website" class="antispam-control antispam-control-e" value="" autocomplete="off">
+                     </p>
+                     {{ form_end(form) }}
+                  </div>
+                  <!-- #respond -->
+               </div>
+               <!-- bigslam-comments-area -->
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

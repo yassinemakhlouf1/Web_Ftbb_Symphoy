@@ -1,0 +1,52 @@
+{% extends 'back/base.html.twig' %}
+{% block content %}
+
+     <div class="row">
+                            <div class="col-lg-6">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Simple table</h5>
+                                    <a href="{{path('team') }}">
+                                     <button type="button" class="btn btn-primary">Add Team</button></a>
+                                        <table class="mb-0 table">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th> Name</th>
+                                                <th> Competition </th>
+                                                  <th> image </th>
+                                              <th> Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for t in team %}
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>{{t.name}}</td>
+                                                <td>{{t.idCompetition.name}}</td>
+                                              <td>
+                                              <img src="{{ asset('uploads/logo/'~ t.logo)}}" width="20"  >
+                                              </td>
+
+                                                <td>
+                                                <a href="{{path('team_delete',{'id':t.id}) }}">
+                                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                           
+                                                        <i class="pe-7s-trash"> </i>
+                                                                                    
+                        </button></a>
+                        
+                         <a href="{{path('team_edit',{'id':t.id}) }}">
+                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                              <i class="pe-7s-note2"> </i>
+                        </button></a>
+                                                </td>
+                                            </tr>
+                                           {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+ <table class="sp-event-blocks sp-data-table sp-paginated-table" data-sp-rows="2">
+                                                        <thead>
+                                                            <tr>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="data">
+                                                           <tr class="sp-row sp-post alternate">
+                                                                <td>
+                                                                    <time class="sp-event-date" datetime="2015-04-04 17:44:06">
+                                                                        <a href="#" itemprop="url" content="#">{{ game.time | date }}</a> </time>
+                                                                    <h5 class="sp-event-results">
+                                                                <a href="#" itemprop="url" content="#"><span class="sp-result">{{ game.scoreHome}}</span> - <span class="sp-result">{{ game.scoreAway}}</span></a>                                                          </h5>
+                                                                    <h4 class="sp-event-title">
+                                                                        <span class="team-logo logo-odd" title="Big Slam">
+                                                                        <img width="105" height="128" src="http://127.0.0.1:8000/uploads/logo/"+ game.idTeamHome.logo  class="attachment-sportspress-fit-icon size-sportspress-fit-icon wp-post-image" alt="" >
+                                                                        </span><a href="#" itemprop="url" content="#"><span class="bigslam-sp-team-name">{{ game.idTeamHome.name}}</span><span class="bigslam-sp-team-vs"> VS </span><span class="bigslam-sp-team-name">{{ game.idTeamAway.name}}</span></a><span class="team-logo logo-even" title="Los Angeles">
+                                                                        <img width="128" height="128"  src="http://127.0.0.1:8000/uploads/logo/"+ game.idTeamAway.logo  class="attachment-sportspress-fit-icon size-sportspress-fit-icon wp-post-image" alt="" ></span>                            </h4>
+
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+{% endblock %}

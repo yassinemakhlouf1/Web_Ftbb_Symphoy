@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Control panel page!{% endblock %}
+
+{% block body %}
+    {% include 'frontalert.html.twig' %}
+
+
+    <h6> </h6>
+    <div id="search-4" class="widget widget_search bigslam-widget" style="width: 250px; height: 110px; float: right">
+        <form  role="search" method="get" type="submit" id="poll_index" class="search-form" >
+            <div class="input-group" >
+                <input  name="users" id="users" type="search" class="search-field" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2" style="height: 40px; border-radius: 15px;">
+                <input type="submit" class="search-submit" value="Search">
+
+                <div class="input-group-append">
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <h3>Active Polls</h3>
+
+
+{% for p in Poll  %}
+    {% if p.status == "Active" %}
+        <hr>
+        <body>
+
+             <div class="poll" style="padding: 20px; border: 3px solid black; border-radius: 15px; width: 450px;  "  >
+
+                <div class="poll-description"  style="font-size: 15px;">
+
+                        <p style="color: black; padding: 20px; border: 3px solid black; border-radius: 15px; width: 390px;">{{ p.description }}</p>
+                </div>
+
+                <form   >
+                    <div class="poll-options">
+
+                        {% for o in Options  %}
+                            {% if p == o.poll %}
+                                {% for v in Vote  %}
+                                    {% if o == v.option %}
+                        <div class="option">
+{#                            <input type="radio" name="vote"  value="{{ v.voteId }}"  >#}
+{#                            <input type="button" value="Vote"    style="width: 70px; padding: 4px 10px; border-radius: 15px; ">#}
+                            <td>
+
+                                <a class="button" href="/ftbb_web/ftbb_web/public/index.php/poll/vote/{{ v.voteId}}" style="padding: 6px; border: 3px solid white; border-radius: 20px; background-color: orangered; color: white" id="gdlr-core-button-id-27645" >✔</a>
+                            </td>
+
+                            <label  style="color: black; padding: 5px; border: 3px solid black; border-radius: 15px; width: 350px;" >{{ o.description  }}</label>
+                            <hr>
+                            <h6> </h6>
+                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                    <hr>
+{#                    <input type="hidden" href="/ftbb_web/ftbb_web/public/index.php/poll/vote/{voteId}">#}
+{#                    #}
+                </form>
+
+             </div>
+        </body>
+        <hr>
+    {% endif %}
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+
+
+{#        <form action="vote" method="get">#}
+{#            <div class="poll-options">#}
+{#                {% for o in Options  %}#}
+{#                {% if o.pollId == p.pollId  %}#}
+{#                <div class="option1">#}
+{#                    <input type="radio" name="option" value="111" id="c1">#}
+{#                    <label for="c1">choice1</label>#}
+{#                </div>#}
+{#                {% endif %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#            <input type="submit" value="Submit answer" style="width: 60%; padding: 4px 10px; ">#}
+{#            <input type="hidden" name="poll"   value="1">#}
+{#        </form>#}

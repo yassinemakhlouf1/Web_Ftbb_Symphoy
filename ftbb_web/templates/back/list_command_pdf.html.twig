@@ -1,0 +1,44 @@
+{% block body %}
+    <h1 align="center" style="color: orangered;"> Liste des commandes </h1><hr style="color: #F6DDCC ;">
+    <table align="center">
+        <thead>
+        <tr>
+            <th bgcolor="#BDC3C7">#</th>
+            <th bgcolor="#BDC3C7">ID Command</th>
+            <th bgcolor="#BDC3C7">ID Client</th>
+            <th bgcolor="#BDC3C7">Date Command</th>
+            <th bgcolor="#BDC3C7">Status</th>
+            <th bgcolor="#BDC3C7">Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set i=0 %}
+        {% for command in data %}
+            {% set i=i+1 %}
+            <tr>
+                <th scope="row" bgcolor="#BDC3C7">{{ i }}</th>
+                <td bgcolor="#F2F3F4">
+                    {{ command.commandId }}
+                </td>
+                <td bgcolor="#F2F3F4">
+                    {{ command.idClient }}
+                </td>
+                <td bgcolor="#F2F3F4">
+                    {{ command.dateCommand |date ('Y-m-d H:i:s')}}
+                </td>
+                <td bgcolor="#F2F3F4">
+                    {% if command.status==0 %}
+                        <div class="mb-2 mr-2 badge badge-pill badge-danger">En attente</div>
+                    {% elseif command.status == 1 %}
+                        <div class="mb-2 mr-2 badge badge-pill badge-success">Validée</div>
+                    {% endif %}
+                </td>
+                <td bgcolor="#F2F3F4">
+                    {{ command.totalPrice }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

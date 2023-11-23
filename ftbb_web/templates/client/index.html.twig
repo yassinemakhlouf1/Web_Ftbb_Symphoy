@@ -1,0 +1,90 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Client {% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Client </h1>
+<div class="container-fluid">
+    <div class="card shadow-lg h-75 m-4 mt-8">
+
+        <div class="card-body">
+            <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+            <div class="card-body">
+                <form  method="get" type="submit" id="client_index"
+                       class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input name="users" id="users" class="form-control bg-light border-0 small" placeholder="Search for..."
+                               aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border"  type="submit" >
+                                <i class="fas fa-search fa-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <table class="table">
+                            <thead>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Birthday</th>
+                <th>Sex</th>
+                <th>CreationDate</th>
+{#                <th>Password</th>#}
+                <th>PhotoUrl</th>
+                <th>IdCart</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for s in Client %}
+            <tr>
+                <td>{{ s.id }}</td>
+                <td>{{ s.name }}</td>
+                <td>{{ s.surname }}</td>
+                <td>{{ s.email }}</td>
+                <td>{{ s.number }}</td>
+                <td>{{ s.birthday ? s.birthday|date('Y-m-d') : '' }}</td>
+                <td>{{ s.sex }}</td>
+                <td>{{ s.creationDate ? s.creationDate|date('Y-m-d') : '' }}</td>
+{#                <td>{{ s.password }}</td>#}
+                <td>{{ s.photoUrl }}</td>
+                <td>{{ s.idCart }}</td>
+                <td>{{ s.status }}</td>
+                <td>
+                    <a href="{{ path('client_show', {'id': s.id}) }}">show</a>
+                    <a href="{{ path('client_edit', {'id': s.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{#    <a href="{{ path('client_new') }}">Create new</a>#}
+{% endblock %}

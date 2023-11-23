@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Control panel page!{% endblock %}
+
+
+
+{% block body %}
+
+
+    <h6> </h6>
+    <div id="search-4" class="widget widget_search bigslam-widget" style="width: 250px; height: 110px; float: right">
+        <form  role="search" method="get" type="submit" id="poll_index" class="search-form" >
+            <div class="input-group" >
+                <input  name="users" id="users" type="search" class="search-field" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2" style="height: 40px; border-radius: 15px;">
+                <input type="submit" class="search-submit" value="Search">
+
+                <div class="input-group-append">
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <h3>Ended Polls</h3>
+    <h1>  </h1>
+    {% for p in Poll  %}
+        {% if p.status == "Ended" %}
+            <hr>
+            <body>
+
+            <div class="gdlr-core-skill-bar-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-size-small gdlr-core-type-rectangle" style="padding: 20px; border: 3px solid black; border-radius: 15px; width: 450px; align-content: center; ">
+                <p style="color: black; padding: 20px; border: 3px solid black; border-radius: 15px; width: 400px;">{{ p.description }}</p>
+
+
+                {% set v1= 0 %}
+                {% set v2= 0 %}
+                {% set r = 0 %}
+                {% set n= 0 %}
+
+                {% for o in Options  %}
+                    {% if p == o.poll %}
+                        {% for v in Vote  %}
+
+
+                            {% if (o == v.option) and (n==0) %}
+                                {% set v1= v.voteNbr  %} {% set n=1 %}
+
+                            {% elseif (o == v.option) and (n==1)  %}
+
+                                {% set v2= v.voteNbr  %} {% set n=0 %}
+                            {% endif %}
+                        {% endfor %}
+
+                    {% endif %}
+                {% endfor %}
+
+    {% for o in Options  %}
+
+
+        {% set r = v1+v2 %}
+
+
+
+        {% if p == o.poll %}
+                        {% for v in Vote  %}
+                                 {% if o == v.option %}
+            <div class="gdlr-core-skill-bar">
+                    <div class="gdlr-core-skill-bar-head gdlr-core-title-font"><span class="gdlr-core-skill-bar-title">{{ o.description }}</span><span class="gdlr-core-skill-bar-right">{{ ((v.voteNbr*100)/r)|round }}%</span></div>
+                    <div class="gdlr-core-skill-bar-progress">
+                        <div class="gdlr-core-skill-bar-filled gdlr-core-js gdlr-core-animate" data-width="{{ (v.voteNbr*100)/r }}" ></div>
+                    </div>
+                </div>
+                                 {% endif %}
+                         {% endfor %}
+
+
+         {% endif %}
+
+
+
+    {% endfor %}
+
+
+            </div>
+
+            </body>
+            <h6> </h6>
+            <hr>
+        {% endif %}
+    {% endfor %}
+
+
+    </html>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'back/base.html.twig' %}
+{% block content %}
+
+     <div class="row">
+                            <div class="col-lg-6">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Simple table</h5>
+                                    <a href="{{path('competition') }}">
+                                     <button type="button" class="btn btn-primary">Add Competition</button></a>
+                                        <table class="mb-0 table">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th> Name</th>
+                                              <th> Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for c in comp %}
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>{{c.name}}</td>
+                                                <td>
+                                                <a href="{{path('competition_delete',{'id':c.id}) }}">
+                                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                           
+                                                        <i class="pe-7s-trash"> </i>
+                                                                                    
+                        </button></a>
+                        
+                         <a href="{{path('competition_edit',{'id':c.id}) }}">
+                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                              <i class="pe-7s-note2"> </i>
+                        </button></a>
+                                                </td>
+                                            </tr>
+                                           {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+{% endblock %}

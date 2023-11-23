@@ -1,0 +1,67 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Admin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ admin.name }}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{ admin.surname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ admin.email }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ admin.number }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{{ admin.birthday ? admin.birthday|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td>{{ admin.sex }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ admin.password }}</td>
+            </tr>
+            <tr>
+                <th>PhotoUrl</th>
+                <td>{{ admin.photoUrl }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ admin.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_index') }}">back to list</a>
+
+    <a href="{{ path('admin_edit', {'id': admin.id}) }}">edit</a>
+
+    {{ include('admin/_delete_form.html.twig') }}
+{% endblock %}

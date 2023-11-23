@@ -1,0 +1,29 @@
+    /**
+     * @param $title
+     * @return int|mixed|string
+     */
+    function searchtitle($title){
+        return $this->createQueryBuilder('o')
+            ->where('.title LIKE :title')
+            ->setParameter('title','%' . $title . '%')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @param $data
+     * @return int|mixed|string
+     */
+    public function search($data){
+
+        $query = $this->createQueryBuilder('o');
+            if($data){
+                $query->andWhere('o.id LIKE :data OR
+                 o.title LIKE :data OR
+                 o.description LIKE :data OR
+                 o.creatAt LIKE :data  ')
+                    ->setParameter('data','%'.$data.'%');
+            }
+            return $query
+                ->getQuery()
+                ->getResult();
+    }
